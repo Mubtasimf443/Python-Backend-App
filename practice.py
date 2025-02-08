@@ -91,10 +91,10 @@
 
 ### --------------- 6xt chapter done --------------- ###
 
-def fact(num) :
-    if (num <= 100) : 
-        return num
-    else :
-        return num + fact(num-1)
+# def fact(num) :
+#     if (num <= 100) : 
+#         return num
+#     else :
+#         return num + fact(num-1)
    
-print(fact(1000) )
+# print(fact(1000) )
