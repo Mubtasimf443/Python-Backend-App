@@ -4,6 +4,7 @@
 
 const signUpForm =document.getElementById('signup-page');
 const LoginForm = document.getElementById('login-page');
+let optForm=document.getElementById('otp-page');
 function showOTPPage() {
     document.querySelectorAll('.auth-box').forEach(el => el.classList.add('hidden'));
     document.getElementById('otp-page').classList.remove('hidden')
@@ -21,6 +22,20 @@ LoginForm.onsubmit =async function Login(event=new Event('submit')) {
     try {
         event.preventDefault()
         event.target.style.opacity=.65;
+        let email = LoginForm.querySelector('#l-email').value.trim();
+        let password = LoginForm.querySelector('#l-password').value.trim();
+        let response= await fetch(window.location.origin +'/api/auth/login',{
+            method :'post',
+            body:JSON.stringify( { email, password }),
+            headers :{'Content-Type':"application/json"}
+        })
+        if (response.status===200){
+            window.location.assign('/')
+            return;
+        } else {
+            let data = await response.json();
+            if (data?.error?.message) return alert(data.error.message);
+        }
     } catch (error) {
         console.log('Login Error');
         console.log(error);
@@ -56,16 +71,24 @@ signUpForm.onsubmit =async function Signup(event=new Event('submit')) {
     }
 }
 
-
-async function OtpVerification() {
+optForm.addEventListener('submit',async function OtpVerification(event =new Event('submit')) {
     try {
-        
+        event.preventDefault()
+        let otp = document.getElementById('otp').valueAsNumber;
+        let q= new URLSearchParams({pin:otp}).toString();
+        let response=(await fetch(window.location.origin + '/api/auth/opt-verification?' + q));
+        if (response.status===200) {
+            window.location.assign('/')
+        } else {
+            let data=await response.json();
+            if (data?.error?.message) return alert(data.error.message)
+        }
     } catch (error) {
         console.log('OtpVerification Error');
         console.log(error);
     }
-   
-}
+} )
+
 
 
 

@@ -17,8 +17,8 @@
         <form id="login-page" class="auth-box">
             <h2>Sign in</h2>
             <p>Use your Google Account</p>
-            <input type="email" placeholder="Email or phone" required>
-            <input type="password" placeholder="Enter password" required>
+            <input type="email" placeholder="Email or phone" id="l-email" required>
+            <input type="password" placeholder="Enter password" id="l-password" required>
             <button type="submit">Next</button>
             <p>Not a member? <a onclick="showSignUpPage()">Create account</a></p>
         </form>
@@ -34,12 +34,12 @@
         </form>
         
         <!-- OTP Verification Page -->
-        <div id="otp-page" class="auth-box hidden">
+        <form  id="otp-page" class="auth-box hidden">
             <h2>Verify your email</h2>
             <p>Enter the OTP sent to your email.</p>
-            <input type="text" placeholder="Enter OTP" required>
-            <button onclick="OtpVerification()">Verify</button>
-        </div>
+            <input type="number" placeholder="Enter OTP" id="otp" min="100000" max="999999" required>
+            <button type="submit">Verify</button>
+        </form>
     </div>
 
     <script src="/static/js/auth.js" type="text/javascript" ></script>

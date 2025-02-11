@@ -1,0 +1,84 @@
+/* 
+بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ  ﷺ
+InshaAllah, By his marcy I will Gain Success 
+*/
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.keep-container {
+    width: 600px;
+    margin-top: 20px;
+}
+
+header {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+    color: #5f6368;
+}
+
+.note-input {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    resize: none;
+    border-bottom: 2px solid #ddd;
+}
+
+button {
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1669c1;
+}
+
+.notes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.note-card {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.delete-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #d93025;
+}
